@@ -10,7 +10,7 @@ pipeline {
                 sh "echo 'Cleaning up system'"
                 sh "sleep 3"
                 sh "docker rm -f \$(docker ps -aq) || true"
-                sh "docker rmi -f $(docker images)|| true"
+                sh "docker rmi -f \$(docker images)|| true"
                 sh "echo 'Clean up Complete' "
                 }
         }
