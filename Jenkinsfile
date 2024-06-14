@@ -14,6 +14,11 @@ pipeline {
                 sh "echo 'Clean up Complete' "
                 }
         }
+        stage('Build the container'){
+            steps{
+                sh "docker build -t /$DOCKER_IMAGE ."
+            }
+        }
         stage('Modify the application') {
             steps {
                 sh "echo 'Modify application'"
