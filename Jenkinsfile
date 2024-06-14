@@ -14,15 +14,15 @@ pipeline {
                 }
         }
     }
-            
-    stage('Modify the application') {
+        stage('Modify the application') {
             steps {
                 sh "echo 'Modify application'"
                 sh "sleep 3"
                 sh "export PORT=5001"
                 sh "echo 'Modifications Done. Port is now set to ${PORT}'"
                 }
-        stage('Deploy Containers')
+        }
+        stage('Deploy Containers'){
             steps{
                 sh "echo 'Running Docker Container...'"
                 sh "sleep 3"
