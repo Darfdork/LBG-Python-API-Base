@@ -13,7 +13,6 @@ pipeline {
                 sh "echo 'Clean up Complete' "
                 }
         }
-    }
         stage('Modify the application') {
             steps {
                 sh "echo 'Modify application'"
@@ -30,5 +29,5 @@ pipeline {
             }
             }
         }
-    
+}    
 
