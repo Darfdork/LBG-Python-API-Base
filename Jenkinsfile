@@ -1,17 +1,34 @@
 pipeline {
     agent any
+    environment{
+        bash set -e
+        DOCKER_IMAGE="lbg"
+    }
     stages {
-        stage('Build') {
+        stage('BuildCleanup') {
             steps {
-                sh "sh setup.sh"
-           }
+                sh "echo 'Cleaning up system'"
+                sh "sleep 3"
+                sh "docker rm -f $(docker ps -aq) || true"
+                sh "docker rmi -f $(docker images)|| true"
+                sh "echo 'Clean up Complete' "
+                }
         }
-        stage('Deploy') {
+            
+    stage('Modify the application') {
             steps {
-                sh '''
-                
-                '''
+                sh "echo 'Modify application'"
+                sh "sleep 3"
+                sh "export PORT=5001"
+                sh "echo 'Modifications Done. Port is now set to $PORT'"
+                }
+        stage('Deploy Containers')
+            steps{
+                sh "echo 'Running Docker Container...'"
+                sh "sleep 3"
+                sh "docker run -d -p 80:$PORT -e PORT=$PORT $DOCKER_IMAGE"
+            }
             }
         }
     }
-}
+
