@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment{
         DOCKER_IMAGE="lbg"
+        PORT =5001
     }
     stages {
         stage('BuildCleanup') {
