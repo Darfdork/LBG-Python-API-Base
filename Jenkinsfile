@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment{
-        bash set -e
         DOCKER_IMAGE="lbg"
     }
     stages {
@@ -14,6 +13,7 @@ pipeline {
                 sh "echo 'Clean up Complete' "
                 }
         }
+    }
             
     stage('Modify the application') {
             steps {
@@ -30,5 +30,5 @@ pipeline {
             }
             }
         }
-    }
+    
 
