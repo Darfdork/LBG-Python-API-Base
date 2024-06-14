@@ -10,13 +10,13 @@ pipeline {
                 sh "echo 'Cleaning up system'"
                 sh "sleep 3"
                 sh "docker rm -f \$(docker ps -aq) || true"
-                sh "docker rmi -f \$(docker images)|| true"
+                sh "docker rmi -f $(docker images)|| true"
                 sh "echo 'Clean up Complete' "
                 }
         }
         stage('Build the container'){
             steps{
-                sh "docker build -t /$DOCKER_IMAGE ."
+                sh "docker build -t ${DOCKER_IMAGE} ."
             }
         }
         stage('Modify the application') {
