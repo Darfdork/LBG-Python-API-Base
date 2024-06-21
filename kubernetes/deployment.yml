@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: flask-container
-        image: gcr.io/lbg-mea-build-c19/darfdork-api:latest
+        image: gcr.io/lbg-mea-build-c19/darfdork-api:5
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
