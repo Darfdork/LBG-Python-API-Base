@@ -7,7 +7,7 @@ pipeline {
         PROJECT_ID = 'lbg-mea-build-c19'
         CLUSTER_NAME = 'agriff-cluster'
         LOCATION = 'europe-west2-c'
-        CREDENTIALS_ID = 'agriffkub'
+        CREDENTIALS_ID = 'griffkub'
     }
     stages {
         stage('Build and Push to GCR') {
