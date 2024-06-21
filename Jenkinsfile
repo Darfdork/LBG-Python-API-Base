@@ -13,7 +13,7 @@ pipeline {
         stage('Build and Push to GCR') {
             steps {
                 script {
-                    // Authenticate with Google Cloud
+                    // Authenticate with Google Clouds
                     withCredentials([file(credentialsId: GCR_CREDENTIALS_ID, variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                         sh 'gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS'
                     }
